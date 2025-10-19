@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+    --left-bg-color: rgba(87, 84, 236, 0.7);
+    --right-bg-color: rgba(43, 43, 43, 0.8);
+    --left-btn-hover-color: rgba(87, 84, 236, 1);
+    --right-btn-hover-color: rgba(28, 122, 28, 1);
+    --hover-width: 75%;
+    --other-width: 25%;
+    --speed: 1000ms;
+}
+
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Main container */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+}
+
+/* Split sections */
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all var(--transition-speed) ease-in-out; /* Smooth resizing */
+}
+
+/* Left section background */
+.split.left {
+    left: 0;
+    background: url(https://images.unsplash.com/photo-1617864064479-f203fc7897c0?auto=format&fit=crop&q=80&w=800) no-repeat center center/cover;
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    inset: 0; /* shorthand for top, right, bottom, left */
+    background-color: var(--left-bg-color);
+}
+
+/* Right section background */
+.split.right {
+    right: 0;
+    background: url(https://images.unsplash.com/photo-1719398586551-0257f2dd5b0d?auto=format&fit=crop&q=80&w=800) no-repeat center center/cover;
+}
+
+.split.right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--right-bg-color);
+}
+
+.split.right, .split.left, .split.right::before, .split.left::before {
+    transition: all var(--speed) ease-in-out;
+}
+
+/* Headings */
+h1 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    color: #fff;
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Buttons */
+.btn {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15rem;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.4s, border-color 0.4s;
+}
+
+/* Button hover effects */
+.split.left .btn:hover {
+    background-color: var(--left-btn-hover-color);
+    border-color: var(--left-btn-hover-color);
+}
+
+.split.right .btn:hover {
+    background-color: var(--right-btn-hover-color);
+    border-color: var(--right-btn-hover-color);
+}
+
+/* Hover transitions */
+.hover-left .left {
+    width: var(--hover-width);
+}
+.hover-left .right {
+    width: var(--other-width);
+}
+
+.hover-right .left {
+    width: var(--other-width);
+}
+.hover-right .right {
+    width: var(--hover-width);
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 800px) {
+    .split {
+        width: 100%;
+        height: 50%;
+    }
+
+    .split.left {
+        top: 0;
+    }
+
+    .split.right {
+        bottom: 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+        top: 20%;
+    }
+
+    .btn {
+        top: 55%;
+        width: 12rem;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
