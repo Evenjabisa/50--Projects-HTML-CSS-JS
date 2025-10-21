@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+:root {
+  --border-color: #0078ff;
+  --fill-color: #00c6ff;
+  --bg-glass: rgba(255, 255, 255, 0.15);
+  --text-light: rgba(255, 255, 255, 0.9);
+  --shadow-glow: 0 0 25px rgba(0, 174, 255, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  background: radial-gradient(circle at top, #002bff, #00081f);
+  color: var(--text-light);
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 40px;
+  overflow-x: hidden;
+}
+
+/* ==== TITLES ==== */
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  margin-bottom: 5px;
+}
+
+h3 {
+  margin-bottom: 25px;
+  font-weight: 500;
+  color: #aee1ff;
+}
+
+/* ==== MAIN CUP ==== */
+.cup {
+  background: var(--bg-glass);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  border-radius: 0 0 50px 50px;
+  height: 330px;
+  width: 150px;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-glow);
+  position: relative;
+}
+
+.percentage {
+  background: linear-gradient(180deg, var(--fill-color), #0066ff);
+  color: #fff;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  height: 0;
+  transition: height 0.4s ease-in-out;
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.remained {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-light);
+  font-weight: 500;
+  padding: 10px;
+}
+
+.remained span {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+.remained small {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ==== SMALL CUPS ==== */
+.cups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 320px;
+  gap: 12px;
+}
+
+.cup.cup-small {
+  background: var(--bg-glass);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0 0 20px 20px;
+  height: 100px;
+  width: 60px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 140, 255, 0.2);
+  transform: translateY(0);
+}
+
+.cup.cup-small:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 174, 255, 0.6);
+}
+
+.cup.cup-small.full {
+  background: linear-gradient(180deg, var(--fill-color), #007bff);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(0, 174, 255, 0.6);
+  transform: translateY(-8px) scale(1.07);
+}
+
+/* ==== TEXT ==== */
+.text {
+  text-align: center;
+  font-size: 16px;
+  color: #aee1ff;
+  margin-top: 10px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.title {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff, 0 0 30px #0078ff;
+  }
+  to {
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #0078ff;
+  }
+}
+
+/* ==== ANIMATIONS ==== */
+@keyframes waterRise {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  }
+  50% {
+    text-shadow: 0 0 5px #00eaff, 0 0 15px #00eaff;
+  }
+}
