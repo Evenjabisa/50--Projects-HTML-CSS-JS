@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Ripple Button</title>
+  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset & Base ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Muli", sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 80px;
+      text-align: center;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    /* ===== Ripple Button ===== */
+    .ripple-btn {
+      position: relative;
+      overflow: hidden;
+      padding: 15px 50px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #ff6a00, #ee0979);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    }
+
+    .ripple-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    }
+
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple-effect 0.8s ease-out;
+      background: rgba(255,255,255,0.5);
+      pointer-events: none;
+    }
+
+    @keyframes ripple-effect {
+      to {
+        transform: scale(6);
+        opacity: 0;
+      }
+    }
+
+    /* ===== Footer (Optional) ===== */
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to the Future</h1>
+  <button class="ripple-btn">Click Me</button>
+
+  <footer>Designed by Córdoba Innovation 🌙</footer>
+
+  <script>
+    const buttons = document.querySelectorAll(".ripple-btn");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const ripple = document.createElement("span");
+        ripple.classList.add("ripple");
+
+        const rect = button.getBoundingClientRect();
+        ripple.style.left = `${e.clientX - rect.left}px`;
+        ripple.style.top = `${e.clientY - rect.top}px`;
+        ripple.style.width = ripple.style.height = `${Math.max(rect.width, rect.height)}px`;
+
+        button.appendChild(ripple);
+
+        ripple.addEventListener("animationend", () => ripple.remove());
+      });
+    });
+  </script>
+
+</body>
+</html>
