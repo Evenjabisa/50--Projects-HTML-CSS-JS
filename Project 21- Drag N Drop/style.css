@@ -1,0 +1,58 @@
+body {
+  font-family: "Muli", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  flex-direction: column;
+  color: white;
+}
+
+h1 {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: background 0.3s;
+}
+
+.box.drag-over {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.draggable {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  font-weight: bold;
+  user-select: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.draggable:active {
+  cursor: grabbing;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
