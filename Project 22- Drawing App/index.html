@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Floating toggle (fixed) -->
+    <div class="floating" aria-hidden="false">
+      <button id="toggleBtn" title="Tools">🎨</button>
+    </div>
+
+    <!-- panel (glassmorphism) -->
+    <div class="panel" id="toolsPanel" role="complementary" aria-hidden="true">
+      <div class="title" id="toolsTitle">Drawing Tools</div>
+
+      <!-- tools grid -->
+      <div class="section">
+        <div class="tool-grid" id="toolGrid">
+          <button class="tool-btn" id="brushBtn">Brush</button>
+          <button class="tool-btn" id="eraserBtn">Eraser</button>
+          <button class="tool-btn" id="fillBtn">Fill</button>
+          <button class="tool-btn" id="lineBtn">Line</button>
+          <button class="tool-btn" id="rectBtn">Rect</button>
+          <button class="tool-btn" id="textBtn">Text</button>
+        </div>
+      </div>
+
+      <!-- color + presets -->
+      <div class="section">
+        <div class="row">
+          <label id="colorLabel" style="font-size: 13px">Color</label>
+          <input
+            type="color"
+            id="colorPicker"
+            value="#000000"
+            aria-label="Color picker"
+          />
+          <div
+            style="flex: 1; display: flex; gap: 6px; justify-content: flex-end"
+            id="presetColors"
+          ></div>
+        </div>
+        <div class="row">
+          <label id="sizeLabel">Size: <span id="sizeVal">6</span> px</label>
+          <input
+            id="size"
+            type="range"
+            min="1"
+            max="120"
+            value="6"
+            aria-label="Brush size"
+          />
+        </div>
+        <div class="row">
+          <label id="opacityLabel"
+            >Opacity: <span id="opacityVal">100</span>%</label
+          >
+          <input
+            id="opacity"
+            type="range"
+            min="5"
+            max="100"
+            value="100"
+            aria-label="Brush opacity"
+          />
+        </div>
+      </div>
+
+      <!-- actions -->
+      <div class="section">
+        <div class="actions">
+          <div style="display: flex; gap: 8px">
+            <button id="undoBtn" class="small">Undo</button>
+            <button id="redoBtn" class="small">Redo</button>
+            <button id="clearBtn" class="small">Clear</button>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center">
+            <label
+              for="bgUpload"
+              id="bgLabel"
+              class="small"
+              style="cursor: pointer"
+              >Background</label
+            >
+            <input
+              id="bgUpload"
+              type="file"
+              accept="image/*"
+              style="display: none"
+            />
+            <button id="fitBtn" class="small">Fit</button>
+            <button id="downloadBtn" class="action">Save</button>
+          </div>
+        </div>
+
+        <div
+          style="font-size: 12px; color: var(--muted); text-align: center"
+          id="shortcutsInfo"
+        >
+          Shortcuts: Z Undo · Y Redo · C Clear · S Save
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 8px">
+          <button id="langBtn" class="small">AR / EN</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- app / canvas -->
+    <div class="app">
+      <div class="canvasWrap">
+        <div class="topbar">
+          <div class="footerHints" id="hintText">
+            Press and drag to draw — Touch supported
+          </div>
+          <div class="controls">
+            <!-- extra controls can go here -->
+          </div>
+        </div>
+        <div class="stage">
+          <canvas
+            id="drawingCanvas"
+            width="1200"
+            height="760"
+            aria-label="Drawing board"
+          ></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer (non-intrusive) -->
+    <footer>
+      <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      <a href="#" aria-label="GitHub">GitHub</a>
+      <a href="#" aria-label="Instagram">Instagram</a>
+    </footer>
+   <script src="script.js"></script>
+  </body>
+</html>
