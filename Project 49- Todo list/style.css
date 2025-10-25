@@ -1,0 +1,152 @@
+:root {
+  --bg: #f4f4f4;
+  --card: #fff;
+  --text: #222;
+  --accent: #0078ff;
+  --border: #ddd;
+}
+
+body.dark {
+  --bg: #1f1f1f;
+  --card: #2a2a2a;
+  --text: #eee;
+  --accent: #4da3ff;
+  --border: #444;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 0.3s;
+}
+
+.app {
+  background: var(--card);
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.input-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+input,
+select {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  flex: 1;
+  font-size: 14px;
+  background: var(--card);
+  color: var(--text);
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #005fcc;
+}
+
+.filters {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters button {
+  background: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  flex: 1;
+  margin: 0 3px;
+}
+
+.filters button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  background: var(--card);
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.details {
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.8;
+}
+
+.priority.low {
+  color: green;
+}
+.priority.medium {
+  color: orange;
+}
+.priority.high {
+  color: red;
+}
+
+.clear {
+  background: #ff5c5c;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.clear:hover {
+  background: #e04e4e;
+}
+    
