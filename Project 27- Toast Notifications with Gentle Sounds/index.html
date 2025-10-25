@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast Notifications with Gentle Sounds</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Toast container (bottom-right) -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Buttons in the center -->
+  <div class="center-buttons">
+    <button onclick="showToast('Success message!', 'success')">Show Success</button>
+    <button onclick="showToast('Error message!', 'error')">Show Error</button>
+    <button onclick="showToast('Info message!', 'info')">Show Info</button>
+  </div>
+
+  <!-- Gentle audio files for each type -->
+  <audio id="sound-success" src="https://www.soundjay.com/buttons/sounds/button-1.mp3"></audio>
+  <audio id="sound-error" src="https://www.soundjay.com/buttons/sounds/button-10.mp3"></audio>
+  <audio id="sound-info" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

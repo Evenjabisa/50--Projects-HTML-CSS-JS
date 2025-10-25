@@ -1,0 +1,98 @@
+:root {
+  --toast-success: linear-gradient(135deg, #43e97b, #38f9d7);
+  --toast-error: linear-gradient(135deg, #f85032, #e73827);
+  --toast-info: linear-gradient(135deg, #2193b0, #6dd5ed);
+  --toast-color: #fff;
+  --toast-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --toast-radius: 12px;
+  --toast-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Toast container at bottom-right */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 12px;
+  z-index: 1000;
+}
+
+/* Toast style */
+.toast {
+  min-width: 280px;
+  max-width: 380px;
+  padding: 16px 20px;
+  border-radius: var(--toast-radius);
+  color: var(--toast-color);
+  font-family: var(--toast-font);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--toast-shadow);
+  opacity: 0;
+  transform: translateX(120%) scale(0.9);
+  animation: slideIn 0.5s forwards cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+  border-left: 6px solid transparent;
+}
+
+.toast.success { 
+  background: var(--toast-success);
+  border-left-color: #00c853;
+}
+.toast.error { 
+  background: var(--toast-error);
+  border-left-color: #d50000;
+}
+.toast.info { 
+  background: var(--toast-info);
+  border-left-color: #2962ff;
+}
+
+/* Close button */
+.toast .close-btn {
+  margin-left: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+.toast .close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* Animations */
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes slideOut {
+  to { opacity: 0; transform: translateX(120%) scale(0.9); }
+}
+
+/* Center buttons */
+.center-buttons {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 15px;
+}
+
+button {
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  background: #333;
+  transition: all 0.3s;
+}
+button:hover {
+  background: #555;
+  transform: translateY(-2px);
+}
